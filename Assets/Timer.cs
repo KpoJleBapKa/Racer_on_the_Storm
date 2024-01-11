@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI TimerText;
@@ -15,7 +15,6 @@ public class Timer : MonoBehaviour
     {
         _coroutine = StartCoroutine(Timer_Coroutine());
     }
-
 
     private IEnumerator Timer_Coroutine()
     {
@@ -41,12 +40,12 @@ public class Timer : MonoBehaviour
 
     public void PauseTimer()
     {
-        if (null != _coroutine)
+        if (_coroutine != null)
             StopCoroutine(_coroutine);
     }
 
     private void UpdateText()
     {
-        TimerText.SetText(m.ToString("X2") + ":" + s.ToString("X2"));
+        TimerText.SetText(m.ToString("D2") + ":" + s.ToString("D2"));
     }
 }
